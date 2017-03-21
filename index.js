@@ -10,10 +10,10 @@ for(var i = 0; i < connection; i++)
 {
     delayed.delay(() => { 
         var client = new net.Socket();
-        client.connect(port, address, function() {
+        client.connect(port, address, () => {
             count++;
             console.log('Connected for: ' + count);
-            client.on('error', function(err){
+            client.on('error', err => {
                 client.write('err: ' + err);
             });
         })
